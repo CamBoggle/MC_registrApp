@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio" text="Volver" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="cuadradoNegro">
+    <p class="botonCentro" style="font-size: small;">Registrar Nuevo Usuario</p>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating" color="dark">Usuario</ion-label>
+      <ion-input type="text" placeholder="Ingrese usuario..." color="dark"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="dark">Nombre Completo</ion-label>
+      <ion-input type="text" placeholder="Ingrese nombre y apellido..." color="dark"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="dark">Contraseña</ion-label>
+      <ion-input type="password" placeholder="Ingrese contraseña..." color="dark"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="dark">Correo</ion-label>
+      <ion-input type="email" placeholder="usuario@usuario.cl..." color="dark"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button routerLink="/inicio" fill="outline" shape="round" color="dark" style="padding-left: 80px;">
+    Enviar
+  </ion-button>
+
+</ion-content>
+<ion-footer>
+

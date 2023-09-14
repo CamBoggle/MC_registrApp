@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pagina Principal</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="inicio" text="Volver" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="cuadradoNegro">
+    <p class="botonCentro">Bienvenid@ Alumno {{data.usuario}}</p>
+  </div>
+  <br>
+  <br>
+  <div class="ion-text-center">     
+    <ion-button size="large" expand="block" shape="round" fill="outline" color="dark" style="font-size: medium;">
+      <ion-icon name="qr-code-outline"></ion-icon>
+      <p style="padding-left: 3%;">Registrar Asistencia</p>
+    </ion-button>
+  </div>
+  <ion-item>
+    <img  src="/assets/fondo.png">
+  </ion-item>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark"><ion-icon name="person-outline"></ion-icon></ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="dark"><ion-icon name="exit-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button color="dark"><ion-icon name="cog-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button color="dark"><ion-icon name="information-circle-outline"></ion-icon></ion-fab-button>
+      <ion-fab-button color="dark"><ion-icon name="people-outline"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
+
