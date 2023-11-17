@@ -15,12 +15,20 @@ const routes: Routes = [
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'dos',
+    path: 'dos/:idUsuario',
     loadChildren: () => import('./dos/dos.module').then( m => m.DosPageModule)
   },
   {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+  },
+  {
+    path: 'dos.profesor/:idUsuario',
+    loadChildren: () => import('./dos.profesor/dos.profesor.module').then( m => m.DosProfesorPageModule)
+  },
+  {
+    path: 'profe-qr/:idAsignatura',
+    loadChildren: () => import('./profe-qr/profe-qr.module').then( m => m.ProfeQRPageModule)
   },
 ];
 

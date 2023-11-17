@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink,NavigationExtras } from '@angular/router';
+import { Router, RouterLink,NavigationExtras, ActivatedRoute } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
+import { ApiLoginService } from './api-login.service';
+import { CrudStorageService } from './crud-storage.service';
+
 
 
 @Component({
@@ -10,15 +13,21 @@ import { AlertController, ToastController } from '@ionic/angular';
 })
 export class InicioPage implements OnInit {
 
-  user={
-    usuario:"",
-    password:""
-  }
 
-  usuarioAdmin: string = "Admin";
-  passAdmin: string = "admin123";
+  usuario: string = "";
+  password: string ="";
+ 
 
-  constructor(private router: Router,private toastController: ToastController,private alertController: AlertController) { }
+  user: any;
+
+
+  constructor(
+    private api: ApiLoginService,
+    private activate: ActivatedRoute, 
+    private router: Router,
+    private toastController: ToastController,
+    private alertController: AlertController,
+    private crud: CrudStorageService) { }
 
   ngOnInit() {
   }
@@ -35,20 +44,32 @@ export class InicioPage implements OnInit {
   }
 
 
-  paginaPrincipal()
+
+  async paginaPrincipal()
   {
-    if(this.user.usuario == this.usuarioAdmin && this.user.password == this.passAdmin){
-      // Se declara e instancia un elemento de tipo NavigationExtras
-      let navigationExtras: NavigationExtras = {
-        state: {
-          user: this.user // Al estado se asignamos un objeto con clave y valor
-        }
-      };
-      this.router.navigate(['/dos'],navigationExtras); // navegamos hacia el Home y enviamos información adicional
+    this.api.getlogin(this.usuario,this.password).subscribe((data=[]) => {
+      console.log(data);
+    if(data.length == 1)
+    {
+      const usuario = data[0];
+      this.crud.guardar(usuario.idUsuario,usuario.nombre);
+      if (usuario.estado === 1) 
+      {
+        console.log("Usuario es alumno");
+        this.router.navigate(['/dos', usuario.idUsuario]);
+      }
+      else
+      {
+        console.log("Usuario es profesor");
+        this.router.navigate(['/dos.profesor', usuario.idUsuario]);
+      } 
     }
-    else{
+    else
+    {
+      console.log("fsdfas52345");
       this.errorUsuario();
     }
+    })
   }
 
 
@@ -76,5 +97,6 @@ export class InicioPage implements OnInit {
 
     await alert.present();
   }
+
 
 }

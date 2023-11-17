@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>profeQR</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dos.profesor" text="Volver" color="dark"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h1 style="color: white;">QR de la Asignatura</h1>
+  <br><br>
+  <ion-item *ngFor = " let x of seccionQR">
+    <qrcode [qrdata]="x.asignatura + x.seccion" [width]="250" style="padding-left: 12%;"></qrcode>
+  </ion-item>
+
+</ion-content>

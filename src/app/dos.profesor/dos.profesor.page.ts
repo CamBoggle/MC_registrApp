@@ -4,15 +4,15 @@ import { ApiLoginService } from '../inicio/api-login.service';
 import { Storage } from '@ionic/storage-angular';
 
 @Component({
-  selector: 'app-dos',
-  templateUrl: './dos.page.html',
-  styleUrls: ['./dos.page.scss'],
+  selector: 'app-dos.profesor',
+  templateUrl: './dos.profesor.page.html',
+  styleUrls: ['./dos.profesor.page.scss'],
 })
-export class DosPage implements OnInit {
+export class DosProfesorPage implements OnInit {
 
- 
   horarios: any = [];
   usuarioData: any = [];
+  texto: any;
 
   constructor(
     private api: ApiLoginService,
@@ -20,17 +20,17 @@ export class DosPage implements OnInit {
     private router: Router,
     private storage: Storage) { }
 
-
   ngOnInit() {
     this.activeroute.paramMap.subscribe(p => {
-      const idUsuario = p.get('idUsuario') ?? "";
-      this.api.getHorario(idUsuario).subscribe(data => {
-        this.horarios = data;
-        const dataUser = p.get('idUsuario') ?? "";
+      const dataUser = p.get('idUsuario') ?? "";
         this.api.getUsuario(dataUser).subscribe(userData => {
           this.usuarioData = userData;
+          const idUsuario = p.get('idUsuario') ?? "";
+          this.api.getHoraProf(idUsuario).subscribe(data => {
+            this.horarios = data;
+          });
         });
       });
-    });
   }
+
 }
