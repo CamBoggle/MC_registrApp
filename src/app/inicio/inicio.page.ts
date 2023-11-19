@@ -57,8 +57,33 @@ export class InicioPage implements OnInit {
       }
     } catch (error) {
       console.error('Error durante el inicio de sesión:', error);
+      this.errorUsuario();
       // Manejar errores, como problemas de conexión o de servidor
     }
+  }
+  async passAlerta() {
+    const alert = await this.alertController.create({
+      header: 'Ingrese Usuario',
+      buttons: [{text:'Recuperar', handler : () =>{this.alerta2();}}],
+      inputs: [
+        {
+          placeholder: 'Usuario',
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+
+  async alerta2() {
+    const alert = await this.alertController.create({
+      header: 'Restablesca su contraseña',
+      message: 'Se ha enviado un codigo a su correo registrado para restablecer su contraseña',
+      buttons: ['ok'],
+    });
+
+    await alert.present();
   }
 }
   // async paginaPrincipal()
@@ -86,32 +111,6 @@ export class InicioPage implements OnInit {
   //     this.errorUsuario();
   //   }
   //   })
-  // }
-
-
-  // async passAlerta() {
-  //   const alert = await this.alertController.create({
-  //     header: 'Ingrese Usuario',
-  //     buttons: [{text:'Recuperar', handler : () =>{this.alerta2();}}],
-  //     inputs: [
-  //       {
-  //         placeholder: 'Usuario',
-  //       },
-  //     ],
-  //   });
-
-  //   await alert.present();
-  // }
-
-
-  // async alerta2() {
-  //   const alert = await this.alertController.create({
-  //     header: 'Restablesca su contraseña',
-  //     message: 'Se ha enviado un codigo a su correo registrado para restablecer su contraseña',
-  //     buttons: ['ok'],
-  //   });
-
-  //   await alert.present();
   // }
 
 

@@ -26,7 +26,7 @@ export class CrudStorageService {
 
   async clearCurrentUser() {
     this.currentUser = null;
-    await this.storage.remove('currentUser');
+    this.storage.remove('currentUser');
   }
 //   constructor(
 //     private storage: Storage
