@@ -21,16 +21,17 @@ export class DosProfesorPage implements OnInit {
     private storage: Storage) { }
 
   ngOnInit() {
-    this.activeroute.paramMap.subscribe(p => {
-      const dataUser = p.get('idUsuario') ?? "";
-        this.api.getUsuario(dataUser).subscribe(userData => {
-          this.usuarioData = userData;
-          const idUsuario = p.get('idUsuario') ?? "";
-          this.api.getHoraProf(idUsuario).subscribe(data => {
-            this.horarios = data;
-          });
-        });
-      });
-  }
+  //   this.activeroute.paramMap.subscribe(p => {
+  //     const dataUser = p.get('idUsuario') ?? "";
+  //       this.api.getUsuario(dataUser).subscribe(userData => {
+  //         this.usuarioData = userData;
+  //         const idUsuario = p.get('idUsuario') ?? "";
+  //         this.api.getHoraProf(idUsuario).subscribe(data => {
+  //           this.horarios = data;
+  //         });
+  //       });
+  //     });
+  // }
 
+  }
 }

@@ -15,7 +15,7 @@ const routes: Routes = [
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'dos/:idUsuario',
+    path: 'dos',
     loadChildren: () => import('./dos/dos.module').then( m => m.DosPageModule)
   },
   {
@@ -23,11 +23,11 @@ const routes: Routes = [
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
-    path: 'dos.profesor/:idUsuario',
+    path: 'dos.profesor',
     loadChildren: () => import('./dos.profesor/dos.profesor.module').then( m => m.DosProfesorPageModule)
   },
   {
-    path: 'profe-qr/:idAsignatura',
+    path: 'profe-qr',
     loadChildren: () => import('./profe-qr/profe-qr.module').then( m => m.ProfeQRPageModule)
   },
 ];

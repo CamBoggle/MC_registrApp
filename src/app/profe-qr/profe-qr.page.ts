@@ -19,12 +19,12 @@ export class ProfeQRPage implements OnInit {
 
   ngOnInit() 
   {
-    this.activeroute.paramMap.subscribe(p => {
-      const dataUser = p.get('idAsignatura') ?? "";
-        this.api.getInfoQR(dataUser).subscribe(userData => {
-          this.seccionQR = userData;
-        });
-      });
+    // this.activeroute.paramMap.subscribe(p => {
+    //   const dataUser = p.get('idAsignatura') ?? "";
+    //     this.api.getInfoQR(dataUser).subscribe(userData => {
+    //       this.seccionQR = userData;
+    //     });
+    //   });
   }
 
 }

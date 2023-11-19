@@ -22,15 +22,15 @@ export class DosPage implements OnInit {
 
 
   ngOnInit() {
-    this.activeroute.paramMap.subscribe(p => {
-      const idUsuario = p.get('idUsuario') ?? "";
-      this.api.getHorario(idUsuario).subscribe(data => {
-        this.horarios = data;
-        const dataUser = p.get('idUsuario') ?? "";
-        this.api.getUsuario(dataUser).subscribe(userData => {
-          this.usuarioData = userData;
-        });
-      });
-    });
+    // this.activeroute.paramMap.subscribe(p => {
+    //   const idUsuario = p.get('idUsuario') ?? "";
+    //   this.api.getHorario(idUsuario).subscribe(data => {
+    //     this.horarios = data;
+    //     const dataUser = p.get('idUsuario') ?? "";
+    //     this.api.getUsuario(dataUser).subscribe(userData => {
+    //       this.usuarioData = userData;
+    //     });
+    //   });
+    // });
   }
 }

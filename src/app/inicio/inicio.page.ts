@@ -13,13 +13,9 @@ import { CrudStorageService } from './crud-storage.service';
 })
 export class InicioPage implements OnInit {
 
-
   usuario: string = "";
   password: string ="";
- 
-
   user: any;
-
 
   constructor(
     private api: ApiLoginService,
@@ -32,7 +28,6 @@ export class InicioPage implements OnInit {
   ngOnInit() {
   }
 
-
   async errorUsuario(){
     const toast = await this.toastController.create({
       message:'Usuario o Contraseña Invalida',
@@ -43,34 +38,55 @@ export class InicioPage implements OnInit {
     await toast.present();
   }
 
-
-
-  async paginaPrincipal()
-  {
-    this.api.getlogin(this.usuario,this.password).subscribe((data=[]) => {
-      console.log(data);
-    if(data.length == 1)
-    {
-      const usuario = data[0];
-      this.crud.guardar(usuario.idUsuario,usuario.nombre);
-      if (usuario.estado === 1) 
-      {
-        console.log("Usuario es alumno");
-        this.router.navigate(['/dos', usuario.idUsuario]);
+  async iniciarSesion() {
+    try {
+      const usuario = await this.api.obtenerUsuario(this.usuario);
+      if (usuario && usuario.contrasena === this.password) {
+        console.log('Inicio de sesión exitoso');
+        await this.crud.guardar(this.usuario, usuario); 
+  
+        // Redirección basada en el estado del usuario
+        if (usuario.estado === 1) {
+          this.router.navigate(['/dos']);
+        } else if (usuario.estado === 0) {
+          this.router.navigate(['/dos.profesor']);
+        }
+      } else {
+        console.log('Credenciales incorrectas');
+        // Manejar el caso de credenciales incorrectas
       }
-      else
-      {
-        console.log("Usuario es profesor");
-        this.router.navigate(['/dos.profesor', usuario.idUsuario]);
-      } 
+    } catch (error) {
+      console.error('Error durante el inicio de sesión:', error);
+      // Manejar errores, como problemas de conexión o de servidor
     }
-    else
-    {
-      console.log("fsdfas52345");
-      this.errorUsuario();
-    }
-    })
   }
+
+  // async paginaPrincipal()
+  // {
+  //   this.api.getlogin(this.usuario,this.password).subscribe((data=[]) => {
+  //     console.log(data);
+  //   if(data.length == 1)
+  //   {
+  //     const usuario = data[0];
+  //     this.crud.guardar(usuario.idUsuario,usuario.nombre);
+  //     if (usuario.estado === 1) 
+  //     {
+  //       console.log("Usuario es alumno");
+  //       this.router.navigate(['/dos', usuario.idUsuario]);
+  //     }
+  //     else
+  //     {
+  //       console.log("Usuario es profesor");
+  //       this.router.navigate(['/dos.profesor', usuario.idUsuario]);
+  //     } 
+  //   }
+  //   else
+  //   {
+  //     console.log("fsdfas52345");
+  //     this.errorUsuario();
+  //   }
+  //   })
+  // }
 
 
   async passAlerta() {
