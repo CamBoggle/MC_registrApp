@@ -19,6 +19,16 @@ export class ApiLoginService {
       return null;
     }
   }
+
+  async obtenerAsignatura(idAsignatura: string) {
+    const asignaturaRef = ref(this.db, `/Asignatura/${idAsignatura}`);
+    const snapshot = await get(asignaturaRef);
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  }
 }
   
 

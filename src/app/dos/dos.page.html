@@ -1,4 +1,4 @@
-<!-- <ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Pagina Principal</ion-title>
     <ion-buttons slot="start">
@@ -8,6 +8,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <br>
+  <br>
+  <div class="ion-text-center">     
+    <ion-button size="large" expand="block" shape="round" fill="outline" color="dark" style="font-size: medium;">
+      <ion-icon name="qr-code-outline"></ion-icon>
+      <p style="padding-left: 3%;">Registrar Asistencia</p>
+    </ion-button>
+  </div>
+  <h1>{{usuarioData.nombre}}</h1>
+  <ion-item *ngFor="let detalleClase of clasesDetalles">
+    <ion-label>
+      Nombre: {{ detalleClase.nombre }}<br>
+      Sección: {{ detalleClase.seccion }}<br>
+    </ion-label>
+  </ion-item>
+</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-content [fullscreen]="true">
   <div class="cuadradoNegro" *ngFor="let x of usuarioData">
     <p class="botonCentro">Bienvenid@ Alumno {{x.nombre}}</p>
   </div>
@@ -22,5 +62,5 @@
   <ion-item *ngFor = " let y of horarios">
     <ion-label>{{y.nombre}} {{y.seccion}}</ion-label>
   </ion-item>
-</ion-content>
- -->
+</ion-content> -->
+

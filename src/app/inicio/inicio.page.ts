@@ -43,7 +43,7 @@ export class InicioPage implements OnInit {
       const usuario = await this.api.obtenerUsuario(this.usuario);
       if (usuario && usuario.contrasena === this.password) {
         console.log('Inicio de sesión exitoso');
-        await this.crud.guardar(this.usuario, usuario); 
+        await this.crud.setCurrentUser(usuario); // Guardar información del usuario
   
         // Redirección basada en el estado del usuario
         if (usuario.estado === 1) {
@@ -60,7 +60,7 @@ export class InicioPage implements OnInit {
       // Manejar errores, como problemas de conexión o de servidor
     }
   }
-
+}
   // async paginaPrincipal()
   // {
   //   this.api.getlogin(this.usuario,this.password).subscribe((data=[]) => {
@@ -89,30 +89,30 @@ export class InicioPage implements OnInit {
   // }
 
 
-  async passAlerta() {
-    const alert = await this.alertController.create({
-      header: 'Ingrese Usuario',
-      buttons: [{text:'Recuperar', handler : () =>{this.alerta2();}}],
-      inputs: [
-        {
-          placeholder: 'Usuario',
-        },
-      ],
-    });
+  // async passAlerta() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Ingrese Usuario',
+  //     buttons: [{text:'Recuperar', handler : () =>{this.alerta2();}}],
+  //     inputs: [
+  //       {
+  //         placeholder: 'Usuario',
+  //       },
+  //     ],
+  //   });
 
-    await alert.present();
-  }
-
-
-  async alerta2() {
-    const alert = await this.alertController.create({
-      header: 'Restablesca su contraseña',
-      message: 'Se ha enviado un codigo a su correo registrado para restablecer su contraseña',
-      buttons: ['ok'],
-    });
-
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
 
 
-}
+  // async alerta2() {
+  //   const alert = await this.alertController.create({
+  //     header: 'Restablesca su contraseña',
+  //     message: 'Se ha enviado un codigo a su correo registrado para restablecer su contraseña',
+  //     buttons: ['ok'],
+  //   });
+
+  //   await alert.present();
+  // }
+
+
+
