@@ -1,79 +1,401 @@
 {
-    "usuario":
-    [
-        {"idUsuario": 1 , "nombre": "Esteban", "apellido": "Diaz", "contrasena": "123456", "estado": 1, "user": "111111111-1"},
-        {"idUsuario": 2 , "nombre": "Eduardo", "apellido": "Astorga", "contrasena": "123456", "estado": 1, "user": "222222222-2"},
-        {"idUsuario": 3, "nombre": "Carlos", "apellido": "Rodríguez", "contrasena": "xyz123", "estado": 1, "user": "333333333-3"},
-        {"idUsuario": 4, "nombre": "Laura", "apellido": "Pérez", "contrasena": "password", "estado": 1, "user": "444444444-4"},
-        {"idUsuario": 5, "nombre": "Alejandro", "apellido": "López", "contrasena": "secure123", "estado": 1, "user": "555555555-5"},
-        {"idUsuario": 6, "nombre": "Ana", "apellido": "Martínez", "contrasena": "userpass", "estado": 1, "user": "666666666-6"},
-        {"idUsuario": 7, "nombre": "Juan", "apellido": "González", "contrasena": "pass123", "estado": 1, "user": "777777777-7"},
-        {"idUsuario": 8, "nombre": "Luis", "apellido": "Sánchez", "contrasena": "test456", "estado": 1, "user": "888888888-8"},
-        {"idUsuario": 9, "nombre": "Elena", "apellido": "Fernández", "contrasena": "secret789", "estado": 0, "user": "999999999-9"},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez", "contrasena": "passwd321", "estado": 0, "user": "000000000-0"},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres", "contrasena": "securepass", "estado": 0, "user": "121212121-2"}
-    ],
-    "Asignatura":
-    [
-        {"idAsignatura": 1, "nombre": "Programacion Movil", "seccion":"001", "descripcion": "Descripcion de la asignatura", "idUsuario":10},
-        {"idAsignatura": 2, "nombre": "Programacion Movil", "seccion":"002", "descripcion": "Descripcion de la asignatura", "idUsuario":10},
-        {"idAsignatura": 3, "nombre": "Programacion Movil", "seccion":"003", "descripcion": "Descripcion de la asignatura", "idUsuario":10},
-        {"idAsignatura": 4, "nombre": "Programacion Movil", "seccion":"004", "descripcion": "Descripcion de la asignatura", "idUsuario":10},
-        {"idAsignatura": 5, "nombre": "Programacion Movil", "seccion":"005", "descripcion": "Descripcion de la asignatura", "idUsuario":10},
-        {"idAsignatura": 6, "nombre": "Arquitectura", "seccion":"001", "descripcion": "Descripcion de la asignatura", "idUsuario":9},
-        {"idAsignatura": 7, "nombre": "Arquitectura", "seccion":"002", "descripcion": "Descripcion de la asignatura", "idUsuario":9},
-        {"idAsignatura": 8, "nombre": "Arquitectura", "seccion":"003", "descripcion": "Descripcion de la asignatura", "idUsuario":9},
-        {"idAsignatura": 9, "nombre": "Arquitectura", "seccion":"004", "descripcion": "Descripcion de la asignatura", "idUsuario":9},
-        {"idAsignatura": 10, "nombre": "Arquitectura", "seccion":"005", "descripcion": "Descripcion de la asignatura", "idUsuario":9},
-        {"idAsignatura": 11, "nombre": "Calidad de Software", "seccion":"001", "descripcion": "Descripcion de la asignatura", "idUsuario":11},
-        {"idAsignatura": 12, "nombre": "Calidad de Software", "seccion":"002", "descripcion": "Descripcion de la asignatura", "idUsuario":11},
-        {"idAsignatura": 13, "nombre": "Calidad de Software", "seccion":"003", "descripcion": "Descripcion de la asignatura", "idUsuario":11},
-        {"idAsignatura": 14, "nombre": "Calidad de Software", "seccion":"004", "descripcion": "Descripcion de la asignatura", "idUsuario":11},
-        {"idAsignatura": 15, "nombre": "Calidad de Software", "seccion":"005", "descripcion": "Descripcion de la asignatura", "idUsuario":11}        
-    ],
-    "Horario":
-    [
-        {"idAsignatura": 1,"nombre": "Programacion Movil","seccion":"001", "idUsuario":1},
-        {"idAsignatura": 6,"nombre": "Arquitectura","seccion":"001",   "idUsuario":1},
-        {"idAsignatura": 11,"nombre": "Calidad de Software", "seccion":"001", "idUsuario":1},
-        {"idAsignatura": 2,"nombre": "Programacion Movil","seccion":"002", "idUsuario":2},
-        {"idAsignatura": 7,"nombre": "Arquitectura","seccion":"002", "idUsuario":2},
-        {"idAsignatura": 12,"nombre": "Calidad de Software", "seccion":"002", "idUsuario":2},
-        {"idAsignatura": 3,"nombre": "Programacion Movil","seccion":"003", "idUsuario":3},
-        {"idAsignatura": 8,"nombre": "Arquitectura","seccion":"003", "idUsuario":3},
-        {"idAsignatura": 13,"nombre": "Calidad de Software", "seccion":"003", "idUsuario":3},
-        {"idAsignatura": 4,"nombre": "Programacion Movil", "idUsuario":4},
-        {"idAsignatura": 9,"nombre": "Arquitectura","seccion":"004", "idUsuario":4},
-        {"idAsignatura": 14,"nombre": "Calidad de Software", "seccion":"004", "idUsuario":4},
-        {"idAsignatura": 5,"nombre": "Programacion Movil", "idUsuario":5},
-        {"idAsignatura": 10,"nombre": "Arquitectura","seccion":"005", "idUsuario":5},
-        {"idAsignatura": 15,"nombre": "Calidad de Software", "seccion":"005", "idUsuario":5},
-        {"idAsignatura": 1,"nombre": "Programacion Movil","seccion":"001", "idUsuario":6},
-        {"idAsignatura": 6,"nombre": "Arquitectura","seccion":"001", "idUsuario":6},
-        {"idAsignatura": 11,"nombre": "Calidad de Software", "seccion":"001", "idUsuario":6},
-        {"idAsignatura": 2,"nombre": "Programacion Movil","seccion":"002", "idUsuario":7},
-        {"idAsignatura": 7,"nombre": "Arquitectura","seccion":"002", "idUsuario":7},
-        {"idAsignatura": 12,"nombre": "Calidad de Software", "seccion":"002", "idUsuario":7},
-        {"idAsignatura": 3,"nombre": "Programacion Movil","seccion":"003", "idUsuario":8},
-        {"idAsignatura": 8,"nombre": "Arquitectura","seccion":"003", "idUsuario":8},
-        {"idAsignatura": 13,"nombre": "Calidad de Software", "seccion":"003", "idUsuario":8}
-    ],
-    "HoraProfesor":
-    [
-        {"idUsuario": 9,"nombre": "Elena", "apellido": "Fernández", "seccion":"001", "asignatura": "Arquitectura","idAsignatura": 6},
-        {"idUsuario": 9,"nombre": "Elena", "apellido": "Fernández", "seccion":"002", "asignatura": "Arquitectura","idAsignatura": 7},
-        {"idUsuario": 9,"nombre": "Elena", "apellido": "Fernández", "seccion":"003", "asignatura": "Arquitectura","idAsignatura": 8},
-        {"idUsuario": 9,"nombre": "Elena", "apellido": "Fernández", "seccion":"004", "asignatura": "Arquitectura","idAsignatura": 9},
-        {"idUsuario": 9,"nombre": "Elena", "apellido": "Fernández", "seccion":"005", "asignatura": "Arquitectura","idAsignatura": 10},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez","seccion":"001", "asignatura": "Programacion Movil","idAsignatura": 1},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez","seccion":"002", "asignatura": "Programacion Movil","idAsignatura": 2},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez","seccion":"003", "asignatura": "Programacion Movil","idAsignatura": 3},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez","seccion":"004", "asignatura": "Programacion Movil","idAsignatura": 4},
-        {"idUsuario": 10, "nombre": "Pedro", "apellido": "Ramírez","seccion":"005", "asignatura": "Programacion Movil","idAsignatura": 5},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres","seccion":"001","asignatura": "Calidad de Software","idAsignatura": 11},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres","seccion":"002","asignatura": "Calidad de Software","idAsignatura": 12},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres","seccion":"003","asignatura": "Calidad de Software","idAsignatura": 13},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres","seccion":"004","asignatura": "Calidad de Software","idAsignatura": 14},
-        {"idUsuario": 11, "nombre": "Marta", "apellido": "Torres","seccion":"005","asignatura": "Calidad de Software","idAsignatura": 15}
-    ]
+  "usuario": {
+    "111111111-1": {
+      "idUsuario": 1,
+      "nombre": "Esteban",
+      "apellido": "Diaz",
+      "contrasena": "123456",
+      "estado": 1,
+      "user": "111111111-1"
+    },
+    "222222222-2": {
+      "idUsuario": 2,
+      "nombre": "Eduardo",
+      "apellido": "Astorga",
+      "contrasena": "123456",
+      "estado": 1,
+      "user": "222222222-2"
+    },
+    "000000000-0": {
+      "idUsuario": 3,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "contrasena": "passwd321",
+      "estado": 0,
+      "user": "000000000-0"
+    },
+    "121212121-2": {
+      "idUsuario": 4,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "contrasena": "securepass",
+      "estado": 0,
+      "user": "121212121-2"
+    }
+  },
+  "Asignatura": [
+    {
+      "idAsignatura": 1,
+      "nombre": "Programacion Movil",
+      "seccion": "001",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 10
+    },
+    {
+      "idAsignatura": 2,
+      "nombre": "Programacion Movil",
+      "seccion": "002",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 10
+    },
+    {
+      "idAsignatura": 3,
+      "nombre": "Programacion Movil",
+      "seccion": "003",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 10
+    },
+    {
+      "idAsignatura": 4,
+      "nombre": "Programacion Movil",
+      "seccion": "004",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 10
+    },
+    {
+      "idAsignatura": 5,
+      "nombre": "Programacion Movil",
+      "seccion": "005",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 10
+    },
+    {
+      "idAsignatura": 6,
+      "nombre": "Arquitectura",
+      "seccion": "001",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 9
+    },
+    {
+      "idAsignatura": 7,
+      "nombre": "Arquitectura",
+      "seccion": "002",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 9
+    },
+    {
+      "idAsignatura": 8,
+      "nombre": "Arquitectura",
+      "seccion": "003",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 9
+    },
+    {
+      "idAsignatura": 9,
+      "nombre": "Arquitectura",
+      "seccion": "004",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 9
+    },
+    {
+      "idAsignatura": 10,
+      "nombre": "Arquitectura",
+      "seccion": "005",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 9
+    },
+    {
+      "idAsignatura": 11,
+      "nombre": "Calidad de Software",
+      "seccion": "001",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 11
+    },
+    {
+      "idAsignatura": 12,
+      "nombre": "Calidad de Software",
+      "seccion": "002",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 11
+    },
+    {
+      "idAsignatura": 13,
+      "nombre": "Calidad de Software",
+      "seccion": "003",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 11
+    },
+    {
+      "idAsignatura": 14,
+      "nombre": "Calidad de Software",
+      "seccion": "004",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 11
+    },
+    {
+      "idAsignatura": 15,
+      "nombre": "Calidad de Software",
+      "seccion": "005",
+      "descripcion": "Descripcion de la asignatura",
+      "idUsuario": 11
+    }
+  ],
+  "Horario": [
+    {
+      "idAsignatura": 1,
+      "nombre": "Programacion Movil",
+      "seccion": "001",
+      "idUsuario": 1
+    },
+    {
+      "idAsignatura": 6,
+      "nombre": "Arquitectura",
+      "seccion": "001",
+      "idUsuario": 1
+    },
+    {
+      "idAsignatura": 11,
+      "nombre": "Calidad de Software",
+      "seccion": "001",
+      "idUsuario": 1
+    },
+    {
+      "idAsignatura": 2,
+      "nombre": "Programacion Movil",
+      "seccion": "002",
+      "idUsuario": 2
+    },
+    {
+      "idAsignatura": 7,
+      "nombre": "Arquitectura",
+      "seccion": "002",
+      "idUsuario": 2
+    },
+    {
+      "idAsignatura": 12,
+      "nombre": "Calidad de Software",
+      "seccion": "002",
+      "idUsuario": 2
+    },
+    {
+      "idAsignatura": 3,
+      "nombre": "Programacion Movil",
+      "seccion": "003",
+      "idUsuario": 3
+    },
+    {
+      "idAsignatura": 8,
+      "nombre": "Arquitectura",
+      "seccion": "003",
+      "idUsuario": 3
+    },
+    {
+      "idAsignatura": 13,
+      "nombre": "Calidad de Software",
+      "seccion": "003",
+      "idUsuario": 3
+    },
+    { "idAsignatura": 4, "nombre": "Programacion Movil", "idUsuario": 4 },
+    {
+      "idAsignatura": 9,
+      "nombre": "Arquitectura",
+      "seccion": "004",
+      "idUsuario": 4
+    },
+    {
+      "idAsignatura": 14,
+      "nombre": "Calidad de Software",
+      "seccion": "004",
+      "idUsuario": 4
+    },
+    { "idAsignatura": 5, "nombre": "Programacion Movil", "idUsuario": 5 },
+    {
+      "idAsignatura": 10,
+      "nombre": "Arquitectura",
+      "seccion": "005",
+      "idUsuario": 5
+    },
+    {
+      "idAsignatura": 15,
+      "nombre": "Calidad de Software",
+      "seccion": "005",
+      "idUsuario": 5
+    },
+    {
+      "idAsignatura": 1,
+      "nombre": "Programacion Movil",
+      "seccion": "001",
+      "idUsuario": 6
+    },
+    {
+      "idAsignatura": 6,
+      "nombre": "Arquitectura",
+      "seccion": "001",
+      "idUsuario": 6
+    },
+    {
+      "idAsignatura": 11,
+      "nombre": "Calidad de Software",
+      "seccion": "001",
+      "idUsuario": 6
+    },
+    {
+      "idAsignatura": 2,
+      "nombre": "Programacion Movil",
+      "seccion": "002",
+      "idUsuario": 7
+    },
+    {
+      "idAsignatura": 7,
+      "nombre": "Arquitectura",
+      "seccion": "002",
+      "idUsuario": 7
+    },
+    {
+      "idAsignatura": 12,
+      "nombre": "Calidad de Software",
+      "seccion": "002",
+      "idUsuario": 7
+    },
+    {
+      "idAsignatura": 3,
+      "nombre": "Programacion Movil",
+      "seccion": "003",
+      "idUsuario": 8
+    },
+    {
+      "idAsignatura": 8,
+      "nombre": "Arquitectura",
+      "seccion": "003",
+      "idUsuario": 8
+    },
+    {
+      "idAsignatura": 13,
+      "nombre": "Calidad de Software",
+      "seccion": "003",
+      "idUsuario": 8
+    }
+  ],
+  "HoraProfesor": [
+    {
+      "idUsuario": 9,
+      "nombre": "Elena",
+      "apellido": "Fernández",
+      "seccion": "001",
+      "asignatura": "Arquitectura",
+      "idAsignatura": 6
+    },
+    {
+      "idUsuario": 9,
+      "nombre": "Elena",
+      "apellido": "Fernández",
+      "seccion": "002",
+      "asignatura": "Arquitectura",
+      "idAsignatura": 7
+    },
+    {
+      "idUsuario": 9,
+      "nombre": "Elena",
+      "apellido": "Fernández",
+      "seccion": "003",
+      "asignatura": "Arquitectura",
+      "idAsignatura": 8
+    },
+    {
+      "idUsuario": 9,
+      "nombre": "Elena",
+      "apellido": "Fernández",
+      "seccion": "004",
+      "asignatura": "Arquitectura",
+      "idAsignatura": 9
+    },
+    {
+      "idUsuario": 9,
+      "nombre": "Elena",
+      "apellido": "Fernández",
+      "seccion": "005",
+      "asignatura": "Arquitectura",
+      "idAsignatura": 10
+    },
+    {
+      "idUsuario": 10,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "seccion": "001",
+      "asignatura": "Programacion Movil",
+      "idAsignatura": 1
+    },
+    {
+      "idUsuario": 10,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "seccion": "002",
+      "asignatura": "Programacion Movil",
+      "idAsignatura": 2
+    },
+    {
+      "idUsuario": 10,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "seccion": "003",
+      "asignatura": "Programacion Movil",
+      "idAsignatura": 3
+    },
+    {
+      "idUsuario": 10,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "seccion": "004",
+      "asignatura": "Programacion Movil",
+      "idAsignatura": 4
+    },
+    {
+      "idUsuario": 10,
+      "nombre": "Pedro",
+      "apellido": "Ramírez",
+      "seccion": "005",
+      "asignatura": "Programacion Movil",
+      "idAsignatura": 5
+    },
+    {
+      "idUsuario": 11,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "seccion": "001",
+      "asignatura": "Calidad de Software",
+      "idAsignatura": 11
+    },
+    {
+      "idUsuario": 11,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "seccion": "002",
+      "asignatura": "Calidad de Software",
+      "idAsignatura": 12
+    },
+    {
+      "idUsuario": 11,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "seccion": "003",
+      "asignatura": "Calidad de Software",
+      "idAsignatura": 13
+    },
+    {
+      "idUsuario": 11,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "seccion": "004",
+      "asignatura": "Calidad de Software",
+      "idAsignatura": 14
+    },
+    {
+      "idUsuario": 11,
+      "nombre": "Marta",
+      "apellido": "Torres",
+      "seccion": "005",
+      "asignatura": "Calidad de Software",
+      "idAsignatura": 15
+    }
+  ]
 }
