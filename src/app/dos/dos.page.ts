@@ -20,7 +20,6 @@ export class DosPage implements OnInit {
 
   constructor(
     private api: ApiLoginService,
-    private activeroute: ActivatedRoute, 
     private router: Router,
     private storage: Storage,
     private crud: CrudStorageService) { }
