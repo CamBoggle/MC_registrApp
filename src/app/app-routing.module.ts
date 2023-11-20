@@ -27,7 +27,7 @@ const routes: Routes = [
     loadChildren: () => import('./dos.profesor/dos.profesor.module').then( m => m.DosProfesorPageModule)
   },
   {
-    path: 'profe-qr',
+    path: 'profe-qr/:idAsignatura',
     loadChildren: () => import('./profe-qr/profe-qr.module').then( m => m.ProfeQRPageModule)
   },
 ];
