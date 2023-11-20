@@ -20,6 +20,11 @@
     </ion-card-content>
   </ion-card>
   <ion-list>
-    
+    <ion-item *ngFor="let usuario of usuariosInscritos">
+      <ion-label>
+        <h2>{{ usuario.nombre }}</h2>
+        <!-- Agrega aquí más detalles que quieras mostrar -->
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
