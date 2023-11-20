@@ -29,6 +29,19 @@ export class ApiLoginService {
       return null;
     }
   }
+
+  async obtenerAsistencia(idAsistencia: string) {
+    const asistenciaRef = ref(this.db, `/Asistencia/${idAsistencia}`);
+    const snapshot = await get(asistenciaRef);
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      return null;
+    }
+  }
+
+
+
   async crearRegistroAsistencia(idAsistencia: string, idClase: string, fecha: number, nombreAsignatura: string, codigoProfesor: string) {
     // Crear una referencia específica con el idAsistencia proporcionado
     const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
@@ -41,42 +54,17 @@ export class ApiLoginService {
       codigo_profesor: codigoProfesor,
       id_asistencia: idAsistencia // Asumiendo que también quieres almacenar el ID dentro del objeto
     });
-
     // Retornar el ID de asistencia para confirmar la creación
     return idAsistencia;
   }
 
+
+  async alumnoPresente(idAsistencia: string, idUsuario: string) {
+    const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
+    await set(asistenciaRef, {
+      alumno_presente: idUsuario
+    });
+  }
+
 }
-  
-
-  // getlogin(usuario: string, password: string)
-  // {
-  //   const url = this.urlAPI + 'usuario?user='+usuario+'&contrasena='+password;
-  //     return this.http.get<any>(url);      
-  // }
-
-  // getHorario(id: string)
-  // {
-  //   const url = this.urlAPI + 'Horario?idUsuario=' + id;
-  //   return this.http.get<any[]>(url);
-  // }
-
-  
-  // getUsuario(id : string)
-  // {
-  //   const url = this.urlAPI + 'usuario?idUsuario=' + id;
-  //   return this.http.get<any>(url);
-  // }
-
-  // getHoraProf(id: string)
-  // {
-  //   const url = this.urlAPI + 'HoraProfesor?idUsuario=' + id;
-  //   return this.http.get<any>(url)
-  // }
-
-  // getInfoQR(id:string)
-  // {
-  //   const url = this.urlAPI + 'HoraProfesor?idAsignatura=' + id;
-  //   return this.http.get<any>(url)
-  // }
 
