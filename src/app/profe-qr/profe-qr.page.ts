@@ -21,7 +21,7 @@ export class ProfeQRPage implements OnInit {
   ) { }
 
   prueba(){
-    this.api.alumnoPresente("2781b8fb-29a7-4e45-9b30-9269dd2d4e44", "111111111-1")
+    this.api.alumnoPresente("49ff5c06-bd41-4cac-a62a-32c371ce352b", "111111111-1")
   }
 
   ngOnInit() {
