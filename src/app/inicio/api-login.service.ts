@@ -59,7 +59,7 @@ export class ApiLoginService {
   async alumnoPresente(idAsistencia: string, idUsuario: string) {
     const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
     await update(asistenciaRef, {
-      alumno_presente: idUsuario
+      alumno_presente: [idUsuario]
     });
   }
 
