@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Database, ref, get, set } from '@angular/fire/database';
+import { Database, ref, get, set, update } from '@angular/fire/database';
 
 
 
@@ -40,8 +40,6 @@ export class ApiLoginService {
     }
   }
 
-
-
   async crearRegistroAsistencia(idAsistencia: string, idClase: string, fecha: number, nombreAsignatura: string, codigoProfesor: string) {
     // Crear una referencia específica con el idAsistencia proporcionado
     const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
@@ -58,10 +56,9 @@ export class ApiLoginService {
     return idAsistencia;
   }
 
-
   async alumnoPresente(idAsistencia: string, idUsuario: string) {
     const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
-    await set(asistenciaRef, {
+    await update(asistenciaRef, {
       alumno_presente: idUsuario
     });
   }
