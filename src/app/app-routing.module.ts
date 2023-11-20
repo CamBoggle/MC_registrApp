@@ -29,7 +29,11 @@ const routes: Routes = [
   {
     path: 'profe-qr/:idAsignatura',
     loadChildren: () => import('./profe-qr/profe-qr.module').then( m => m.ProfeQRPageModule)
+  },  {
+    path: 'detalle-asignatura',
+    loadChildren: () => import('./detalle-asignatura/detalle-asignatura.module').then( m => m.DetalleAsignaturaPageModule)
   },
+
 ];
 
 @NgModule({
