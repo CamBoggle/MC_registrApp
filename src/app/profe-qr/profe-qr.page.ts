@@ -9,22 +9,22 @@ import { ApiLoginService } from '../inicio/api-login.service';
 })
 export class ProfeQRPage implements OnInit {
 
-  seccionQR : any = [];
+  seccionQR: any = [];
+  id_asitencia: string = '';
 
   constructor(
     private api: ApiLoginService,
-    private activeroute: ActivatedRoute, 
+    private activeroute: ActivatedRoute,
     private router: Router
   ) { }
 
-  ngOnInit() 
-  {
-    // this.activeroute.paramMap.subscribe(p => {
-    //   const dataUser = p.get('idAsignatura') ?? "";
-    //     this.api.getInfoQR(dataUser).subscribe(userData => {
-    //       this.seccionQR = userData;
-    //     });
-    //   });
-  }
-
+  ngOnInit() {
+    this.activeroute.queryParams.subscribe(params => {
+      this.id_asitencia = params['classId'];
+      if (this.id_asitencia) {
+        return
+      }
+    }
+    )
+  };
 }

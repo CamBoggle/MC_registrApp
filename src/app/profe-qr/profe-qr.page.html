@@ -11,7 +11,7 @@
   <h1 style="color: white;">QR de la Asignatura</h1>
   <br><br>
   <ion-item *ngFor = " let x of seccionQR">
-    <qrcode [qrdata]="x.asignatura + x.seccion" [width]="250" style="padding-left: 12%;"></qrcode>
+    <qrcode [qrdata]="id_asitencia" [width]="250" style="padding-left: 12%;"></qrcode>
   </ion-item>
 
 </ion-content>

@@ -67,9 +67,17 @@ export class DetalleAsignaturaPage implements OnInit {
         this.detalleClase.Profe_a_cargo
       ).then(idAsistencia => {
         console.log('Registro de asistencia creado con ID:', idAsistencia);
+        this.router.navigate(['/profe-qr'], {
+          queryParams: { id_asistencia: this.uuid }
+        });
+
       }).catch(error => {
         console.error('Error al crear el registro de asistencia:', error);
       });
 
     }
+
+    
 }
+
+
