@@ -1,4 +1,4 @@
-<!-- <ion-header [translucent]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>dos.profesor</ion-title>
     <ion-buttons slot="start">
@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="cuadradoNegro" *ngFor="let x of usuarioData">
-    <p class="botonCentro">Bienvenid@ Profesor {{x.nombre}}</p>
+  <div class="cuadradoNegro">
+    <p class="botonCentro">Bienvenid@ Profesor {{usuarioData.nombre}} {{usuarioData.apellido}}</p>
   </div>
-  <p style="padding-left: 3%;"> Secciones:</p>
-  <ion-item *ngFor = " let y of horarios" [routerLink]="['/profe-qr/' + y.idAsignatura]">
-    <ion-label>{{y.asignatura}} {{y.seccion}}</ion-label>
+  <p style="padding-left: 3%;"> Secciones y Asignaturas:</p>
+  <ion-item *ngFor = "let detalleClase of clasesDetalles">
+    <ion-label>{{ detalleClase.seccion }} {{ detalleClase.nombre }}</ion-label>
   </ion-item>
-</ion-content> -->
+  <br><br>
+  <ion-button (click)="cerrarSesion()" shape="round" fill="outline" color="warning">
+    Cerrar Sesión
+  </ion-button>
+</ion-content>

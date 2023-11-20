@@ -51,5 +51,6 @@ export class DosPage implements OnInit {
   }
   cerrarSesion(){
     this.crud.clearCurrentUser()
+    this.router.navigate(['/inicio']);
   }
 }

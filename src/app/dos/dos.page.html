@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="cuadradoNegro">
+    <p class="botonCentro">Bienvenid@ Alumno {{usuarioData.nombre}} {{usuarioData.apellido}}</p>
+  </div>
   <br>
   <br>
   <div class="ion-text-center">     
@@ -16,13 +19,18 @@
       <p style="padding-left: 3%;">Registrar Asistencia</p>
     </ion-button>
   </div>
-  <h1>{{usuarioData.nombre}}</h1>
+  <br><br>
+  <p style="color: white; padding-left: 37%;">Asignaturas</p>
   <ion-item *ngFor="let detalleClase of clasesDetalles">
-    <ion-label>
+    <ion-label >
       Nombre: {{ detalleClase.nombre }}<br>
       Sección: {{ detalleClase.seccion }}<br>
     </ion-label>
   </ion-item>
+  <br><br>
+  <ion-button (click)="cerrarSesion()" shape="round" fill="outline" color="warning">
+    Cerrar Sesión
+  </ion-button>
 </ion-content>
 
 
