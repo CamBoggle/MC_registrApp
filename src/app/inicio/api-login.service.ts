@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Database, ref, get, set, update } from '@angular/fire/database';
+import { Database, ref, get, set, update, push } from '@angular/fire/database';
 
 
 
@@ -56,25 +56,33 @@ export class ApiLoginService {
     return idAsistencia;
   }
 
-  async alumnoPresente(idAsistencia: string, idUsuario: string) {
-    const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}/alumno_presente`);
-  
-    // Obtener el arreglo actual de 'alumno_presente'
-    const snapshot = await get(asistenciaRef);
-    let alumnosPresentes = [];
-  
-    if (snapshot.exists() && Array.isArray(snapshot.val())) {
-      // Si el arreglo ya existe, lo copiamos
-      alumnosPresentes = snapshot.val();
-    }
-  
-    // Añadir el nuevo 'idUsuario' al arreglo si no está presente
-    if (!alumnosPresentes.includes(idUsuario)) {
-      alumnosPresentes.push(idUsuario);
-      // Actualizar el arreglo en Firebase
-      await update(asistenciaRef, alumnosPresentes); // Corrección aquí
-    }
+async alumnoPresente(idAsistencia: string, idUsuario: string) {
+  const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}/alumno_presente`);
+
+  // Obtener el objeto actual de 'alumno_presente'
+  const snapshot = await get(asistenciaRef);
+
+  // Definir el tipo de 'alumnosPresentes' como un objeto cuyas claves son strings
+  let alumnosPresentes: { [key: string]: string } = {};
+
+  if (snapshot.exists() && typeof snapshot.val() === 'object') {
+    // Si el objeto ya existe, lo copiamos
+    alumnosPresentes = snapshot.val();
   }
+
+  // Generar una clave única para el nuevo usuario
+  const newKeyRef = push(asistenciaRef);
+  const newKey = newKeyRef.key;
+
+  // Asegurarse de que newKey no sea null
+  if (newKey !== null && !Object.values(alumnosPresentes).includes(idUsuario)) {
+    alumnosPresentes[newKey] = idUsuario;
+    // Actualizar el objeto en Firebase
+    await update(asistenciaRef, alumnosPresentes);
+  }
+}
+
+  
   
 
 }
