@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiLoginService } from '../inicio/api-login.service';
+import { v4 as uuidv4 } from 'uuid';
 
 
 @Component({
@@ -19,6 +20,14 @@ export class DetalleAsignaturaPage implements OnInit {
     private router: Router,
     private api: ApiLoginService,
     ) { }
+
+    generateUuid(): string {
+      return uuidv4();
+    }
+
+    getCurrentTimestamp(): number {
+      return new Date().getTime();
+    }
 
     ngOnInit() {
       this.activeroute.queryParams.subscribe(params => {

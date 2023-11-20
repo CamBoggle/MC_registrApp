@@ -110,5 +110,15 @@
             ],
             "Profe_a_cargo":"000000000-0"
         }
-    }     
+    },
+    "Asistencia":{
+        "10":{
+            "idClase":"3",
+            "fecha": 1700081841583,
+            "nombre_asignatura":"fakldgjls",
+            "codigo_profesor":"121212121-2",
+            "id_asistencia":"10"
+        }
+
+    }    
 }
