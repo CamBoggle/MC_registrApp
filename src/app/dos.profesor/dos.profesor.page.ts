@@ -47,10 +47,10 @@ export class DosProfesorPage implements OnInit {
       }
     }
   }
+
   cerrarSesion() {
     this.crud.clearCurrentUser()
     this.router.navigate(['/inicio']);
-
   }
 
   viewClassDetails(classId: string) {
