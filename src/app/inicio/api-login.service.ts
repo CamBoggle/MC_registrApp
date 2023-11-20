@@ -88,9 +88,9 @@ async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
     const snapshot = await get(attendanceRef);
     if (snapshot.exists()) {
       const attendance = snapshot.val();
-      attendance.attendance_students = attendance.attendance_students || [];
-      if (!attendance.attendance_students.includes(idUsuario)) {
-        attendance.attendance_students.push(idUsuario);
+      attendance.alumno_presente = attendance.alumno_presente || [];
+      if (!attendance.alumno_presente.includes(idUsuario)) {
+        attendance.alumno_presente.push(idUsuario);
         await set(attendanceRef, attendance);
       }
     } else {
