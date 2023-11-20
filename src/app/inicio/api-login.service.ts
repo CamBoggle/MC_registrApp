@@ -29,6 +29,23 @@ export class ApiLoginService {
       return null;
     }
   }
+  async crearRegistroAsistencia(idAsistencia: string, idClase: string, fecha: number, nombreAsignatura: string, codigoProfesor: string) {
+    // Crear una referencia específica con el idAsistencia proporcionado
+    const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}`);
+
+    // Setear los valores del registro de asistencia
+    await set(asistenciaRef, {
+      idClase: idClase,
+      fecha: fecha,
+      nombre_asignatura: nombreAsignatura,
+      codigo_profesor: codigoProfesor,
+      id_asistencia: idAsistencia // Asumiendo que también quieres almacenar el ID dentro del objeto
+    });
+
+    // Retornar el ID de asistencia para confirmar la creación
+    return idAsistencia;
+  }
+
 }
   
 

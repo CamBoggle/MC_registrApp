@@ -14,6 +14,8 @@ export class DetalleAsignaturaPage implements OnInit {
   classId!: string;
   detalleClase: any = [];
   usuariosInscritos: any[] = [];
+  uuid?: string ;
+  date?: number;
 
   constructor(
     private activeroute: ActivatedRoute,
@@ -52,5 +54,22 @@ export class DetalleAsignaturaPage implements OnInit {
             });
         }
       });
+    }
+
+    crearAsistencia(){
+      this.uuid = this.generateUuid();
+      this.date = this.getCurrentTimestamp();
+      this.api.crearRegistroAsistencia(
+        this.uuid,
+        this.detalleClase.idAsignatura, 
+        this.date,
+        this.detalleClase.nombre, 
+        this.detalleClase.Profe_a_cargo
+      ).then(idAsistencia => {
+        console.log('Registro de asistencia creado con ID:', idAsistencia);
+      }).catch(error => {
+        console.error('Error al crear el registro de asistencia:', error);
+      });
+
     }
 }
