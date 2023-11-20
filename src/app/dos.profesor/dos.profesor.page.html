@@ -12,7 +12,7 @@
     <p class="botonCentro">Bienvenid@ Profesor {{usuarioData.nombre}} {{usuarioData.apellido}}</p>
   </div>
   <p style="padding-left: 3%;"> Secciones y Asignaturas:</p>
-  <ion-item *ngFor = "let detalleClase of clasesDetalles">
+  <ion-item *ngFor = "let detalleClase of clasesDetalles" (click)="viewClassDetails(detalleClase.idAsignatura)">
     <ion-label>{{ detalleClase.seccion }} {{ detalleClase.nombre }}</ion-label>
   </ion-item>
   <br><br>

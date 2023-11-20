@@ -1,0 +1,23 @@
+ion-content {
+    --ion-background-color: rgb(116, 116, 110);
+  }
+
+.cuadradoNegro2 {
+  width: 400px; 
+  height: 80px;
+  padding-right: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(58, 58, 58);
+}
+
+.botonCentro{
+    padding-top: 8%;
+    padding-left: 2%;
+    color: white;
+}
+
+.colorLetra{
+  color: white;
+}

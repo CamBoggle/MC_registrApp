@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>detalle-asignatura</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="dos.profesor" text="Volver" color="dark"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalle-asignatura</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="cuadradoNegro2">
+    <p class="colorLetra">{{detalleClase.nombre}}</p>
+  </div>
 </ion-content>

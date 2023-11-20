@@ -52,4 +52,10 @@ export class DosProfesorPage implements OnInit {
     this.router.navigate(['/inicio']);
 
   }
+
+  viewClassDetails(classId: string) {
+    this.router.navigate(['/detalle-asignatura'], {
+      queryParams: { classId: classId }
+    });
+  }
 }
