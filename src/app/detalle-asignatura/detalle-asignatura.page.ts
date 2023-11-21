@@ -92,6 +92,14 @@ export class DetalleAsignaturaPage implements OnInit {
         queryParams: { id_asistencia: uuid }
       });
     }
+
+    contarAlumnosPresentes(asistencia: any): number {
+      if (asistencia && asistencia.alumno_presente) {
+        return asistencia.alumno_presente.length;
+      } else {
+        return 0;
+      }
+    }
     
 }
 

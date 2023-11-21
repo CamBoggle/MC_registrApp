@@ -15,11 +15,12 @@
   </ion-item>
   <br>
   <ion-list>
-    <ion-item *ngFor="let presente of usuariosPresentes">
-      <ion-label>
-        <h2>{{ presente.nombre }}</h2>
-      </ion-label>
-    </ion-item>
+    <ion-card class="fondoOscuro" *ngFor="let presente of usuariosPresentes">
+      <ion-card-header>
+        <ion-card-title class="colorAmarillo">{{ presente.nombre}} {{ presente.apellido}} - Presente</ion-card-title>
+      </ion-card-header>
+    </ion-card>
   </ion-list>
+  
 
 </ion-content>

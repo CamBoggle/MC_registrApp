@@ -11,7 +11,7 @@
   <div class="cuadradoNegro2">
     <p class="colorLetra">{{detalleClase.nombre}}</p>
   </div>
-  <ion-card>
+  <ion-card class="fondoNegro">
     <ion-card-header>
       <ion-card-title style="color: white;">Seccion: {{detalleClase.seccion}}</ion-card-title>
     </ion-card-header>
@@ -20,9 +20,10 @@
     </ion-card-content>
   </ion-card>
   <ion-list>
+    <p class="colorLetra" style="padding-left: 27%;">LISTA DE ALUMNOS</p>
     <ion-item *ngFor="let usuario of usuariosInscritos">
       <ion-label>
-        <h2>{{ usuario.nombre }} {{ usuario.apellido }}</h2>
+        <h2>Alumno {{ usuario.nombre }} {{ usuario.apellido }}</h2>
         <!-- Agrega aquí más detalles que quieras mostrar -->
       </ion-label>
     </ion-item>
@@ -31,10 +32,16 @@
   <ion-button (click)="crearAsistencia()" expand="block" fill="solid" shape="round" color="warning">
     Crear Asistencia
   </ion-button>
+  <br>
   <ion-list>
-    <ion-item *ngFor="let asist of asistenciasClase" (click)="verAsistenciasPasadas(asist.id_asistencia)">
-      <ion-label>{{asist.fecha | date: 'medium'}}</ion-label>
-    </ion-item>
+    <ion-card class="fondoOscuro" *ngFor="let asist of asistenciasClase" (click)="verAsistenciasPasadas(asist.id_asistencia)">
+      <ion-card-header>
+        <ion-card-subtitle class="colorAmarillo">Fecha de Asistencia:</ion-card-subtitle>
+        <ion-card-title class="colorLetra">{{asist.fecha | date: 'medium'}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="colorLetra">
+        Alumnos presentes: {{contarAlumnosPresentes(asist)}}
+      </ion-card-content>
+    </ion-card>
   </ion-list>
-
 </ion-content>
