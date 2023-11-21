@@ -33,7 +33,6 @@ export class DetalleAsignaturaPage implements OnInit {
     }
 
     ngOnInit() {
-      this.ejemplo()
       this.activeroute.queryParams.subscribe(params => {
         this.classId = params['classId'];
         if (this.classId) {
@@ -42,6 +41,7 @@ export class DetalleAsignaturaPage implements OnInit {
             .then(asignatura => {
               this.detalleClase = asignatura;
               // Ahora, obtén la información de cada usuario inscrito
+              this.listaAsistencia()
               if (this.detalleClase.usuario_inscrito) {
                 this.detalleClase.usuario_inscrito.forEach((usuario: string) => {
                   this.api.obtenerUsuario(usuario).then(userInfo => {
@@ -80,8 +80,8 @@ export class DetalleAsignaturaPage implements OnInit {
 
     }
 
-    ejemplo(){
-      this.api.obtenerAsistenciasPorClase('4').then(asistencias => {
+    listaAsistencia(){
+      this.api.obtenerAsistenciasPorClase(this.detalleClase.idAsignatura).then(asistencias => {
         console.log(asistencias)
         this.asistenciasClase= asistencias; // Aquí tendrás las asistencias filtradas por idClase = 1
       });
