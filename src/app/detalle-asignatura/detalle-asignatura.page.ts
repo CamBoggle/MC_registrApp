@@ -16,6 +16,7 @@ export class DetalleAsignaturaPage implements OnInit {
   usuariosInscritos: any[] = [];
   uuid?: string ;
   date?: number;
+  asistenciasClase : any[] = [];
 
   constructor(
     private activeroute: ActivatedRoute,
@@ -32,6 +33,7 @@ export class DetalleAsignaturaPage implements OnInit {
     }
 
     ngOnInit() {
+      this.ejemplo()
       this.activeroute.queryParams.subscribe(params => {
         this.classId = params['classId'];
         if (this.classId) {
@@ -78,6 +80,12 @@ export class DetalleAsignaturaPage implements OnInit {
 
     }
 
+    ejemplo(){
+      this.api.obtenerAsistenciasPorClase('4').then(asistencias => {
+        console.log(asistencias)
+        this.asistenciasClase= asistencias; // Aquí tendrás las asistencias filtradas por idClase = 1
+      });
+    }
     
 }
 

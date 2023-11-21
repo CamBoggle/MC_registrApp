@@ -7,8 +7,8 @@ import { Database, ref, get, set, update, push } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class ApiLoginService {
- 
-  constructor(private db: Database) {}
+
+  constructor(private db: Database) { }
 
   async obtenerUsuario(user: string) {
     const userRef = ref(this.db, `/usuario/${user}`);
@@ -55,28 +55,46 @@ export class ApiLoginService {
     // Retornar el ID de asistencia para confirmar la creación
     return idAsistencia;
   }
-  
 
-async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
-  const attendanceRef = ref(this.db, `Asistencia/${idAsistencia}`);
-  try {
-    const snapshot = await get(attendanceRef);
-    if (snapshot.exists()) {
-      const attendance = snapshot.val();
-      attendance.alumno_presente = attendance.alumno_presente || [];
-      if (!attendance.alumno_presente.includes(idUsuario)) {
-        attendance.alumno_presente.push(idUsuario);
-        await set(attendanceRef, attendance);
+
+  async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
+    const attendanceRef = ref(this.db, `Asistencia/${idAsistencia}`);
+    try {
+      const snapshot = await get(attendanceRef);
+      if (snapshot.exists()) {
+        const attendance = snapshot.val();
+        attendance.alumno_presente = attendance.alumno_presente || [];
+        if (!attendance.alumno_presente.includes(idUsuario)) {
+          attendance.alumno_presente.push(idUsuario);
+          await set(attendanceRef, attendance);
+        }
+      } else {
+        console.log('Attendance record not found');
       }
-    } else {
-      console.log('Attendance record not found');
+    } catch (error) {
+      console.error('Error updating attendance record:', error);
+      throw error;
     }
-  } catch (error) {
-    console.error('Error updating attendance record:', error);
-    throw error;
   }
-} 
-  
+
+  async obtenerAsistenciasPorClase(idClase: string) {
+    const asistenciasRef = ref(this.db, '/Asistencia');
+    const snapshot = await get(asistenciasRef);
+    if (snapshot.exists()) {
+      const todasLasAsistencias = snapshot.val();
+      const asistenciasFiltradas = Object.keys(todasLasAsistencias)
+        .filter(key => todasLasAsistencias[key].idClase == idClase)
+        .map(key => {
+          return {
+            ...todasLasAsistencias[key],
+            id: key // Si necesitas el ID de asistencia en tus datos
+          };
+        });
+      return asistenciasFiltradas;
+    } else {
+      return [];
+    }
+  }
 
 }
 
