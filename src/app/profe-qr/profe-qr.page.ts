@@ -20,12 +20,7 @@ export class ProfeQRPage implements OnInit {
     private router: Router
   ) { }
 
-  prueba(){
-    this.api.alumnoPresente("49ff5c06-bd41-4cac-a62a-32c371ce352b", "111111111-1")
-  }
-
   ngOnInit() {
-    this.prueba();
     this.activeroute.queryParams.subscribe(params => {
       this.id_asitencia = params['id_asistencia'];
       if (this.id_asitencia) {

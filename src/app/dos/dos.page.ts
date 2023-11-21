@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiLoginService } from '../inicio/api-login.service';
 import { Storage } from '@ionic/storage-angular';
 import { CrudStorageService } from '../inicio/crud-storage.service';
+//IMPORT PARA CAMARA
+import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-dos',
@@ -16,13 +19,40 @@ export class DosPage implements OnInit {
   usuarioData: any = [];
   clasesUsuario: any = []
   clasesDetalles: any = [];
+  lectorQR?: string;
 
 
   constructor(
     private api: ApiLoginService,
     private router: Router,
     private storage: Storage,
-    private crud: CrudStorageService) { }
+    private crud: CrudStorageService,
+    private changeDetectorRef: ChangeDetectorRef) { }
+
+    async startScan() {
+      document.body.classList.add('barcode-scanner-active');
+      const listener = await BarcodeScanner.addListener('barcodeScanned', async (result) => {
+        if (result.barcode.displayValue) {
+          this.lectorQR = result.barcode.displayValue;
+          this.api.alumnoPresente(this.lectorQR,this.usuarioData.user);
+          this.stopScan(); 
+        }
+      });
+      await BarcodeScanner.startScan();
+    }
+  
+    async stopScan() {
+      document.body.classList.remove('barcode-scanner-active');
+      await BarcodeScanner.removeAllListeners();
+      await BarcodeScanner.stopScan();
+      this.changeDetectorRef.detectChanges();
+    }
+
+
+
+    prueba(){
+      this.api.alumnoPresente("49ff5c06-bd41-4cac-a62a-32c371ce352b", "111111111-1")
+    }
 
 
   ngOnInit() {
