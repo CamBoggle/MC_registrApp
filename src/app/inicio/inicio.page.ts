@@ -52,12 +52,12 @@ export class InicioPage implements OnInit {
           this.router.navigate(['/dos.profesor']);
         }
       } else {
+        this.errorUsuario()
         console.log('Credenciales incorrectas');
         // Manejar el caso de credenciales incorrectas
       }
     } catch (error) {
       console.error('Error durante el inicio de sesión:', error);
-      this.errorUsuario();
       // Manejar errores, como problemas de conexión o de servidor
     }
   }
