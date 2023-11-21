@@ -86,6 +86,12 @@ export class DetalleAsignaturaPage implements OnInit {
         this.asistenciasClase= asistencias; // Aquí tendrás las asistencias filtradas por idClase = 1
       });
     }
+
+    verAsistenciasPasadas(uuid: string){
+      this.router.navigate(['/profe-qr'], {
+        queryParams: { id_asistencia: uuid }
+      });
+    }
     
 }
 

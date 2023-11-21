@@ -32,7 +32,7 @@
     Crear Asistencia
   </ion-button>
   <ion-list>
-    <ion-item *ngFor="let asist of asistenciasClase">
+    <ion-item *ngFor="let asist of asistenciasClase" (click)="verAsistenciasPasadas(asist.id_asistencia)">
       <ion-label>{{asist.fecha | date: 'medium'}}</ion-label>
     </ion-item>
   </ion-list>
