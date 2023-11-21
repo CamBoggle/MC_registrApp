@@ -32,10 +32,10 @@ export class DetalleAsignaturaPage implements OnInit {
     }
 
     ngOnInit() {
-      this.usuariosInscritos = [];
       this.activeroute.queryParams.subscribe(params => {
         this.classId = params['classId'];
         if (this.classId) {
+          this.usuariosInscritos = [];
           this.api.obtenerAsignatura(this.classId)
             .then(asignatura => {
               this.detalleClase = asignatura;

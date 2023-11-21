@@ -55,32 +55,7 @@ export class ApiLoginService {
     // Retornar el ID de asistencia para confirmar la creación
     return idAsistencia;
   }
-
-// async alumnoPresente(idAsistencia: string, idUsuario: string) {
-//   const asistenciaRef = ref(this.db, `Asistencia/${idAsistencia}/alumno_presente`);
-
-//   // Obtener el objeto actual de 'alumno_presente'
-//   const snapshot = await get(asistenciaRef);
-
-//   // Definir el tipo de 'alumnosPresentes' como un objeto cuyas claves son strings
-//   let alumnosPresentes: { [key: string]: string } = {};
-
-//   if (snapshot.exists() && typeof snapshot.val() === 'object') {
-//     // Si el objeto ya existe, lo copiamos
-//     alumnosPresentes = snapshot.val();
-//   }
-
-//   // Generar una clave única para el nuevo usuario
-//   const newKeyRef = push(asistenciaRef);
-//   const newKey = newKeyRef.key;
-
-//   // Asegurarse de que newKey no sea null
-//   if (newKey !== null && !Object.values(alumnosPresentes).includes(idUsuario)) {
-//     alumnosPresentes[newKey] = idUsuario;
-//     // Actualizar el objeto en Firebase
-//     await update(asistenciaRef, alumnosPresentes);
-//   }
-// }
+  
 
 async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
   const attendanceRef = ref(this.db, `Asistencia/${idAsistencia}`);

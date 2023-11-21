@@ -22,13 +22,13 @@
   <ion-list>
     <ion-item *ngFor="let usuario of usuariosInscritos">
       <ion-label>
-        <h2>{{ usuario.nombre }}</h2>
+        <h2>{{ usuario.nombre }} {{ usuario.apellido }}</h2>
         <!-- Agrega aquí más detalles que quieras mostrar -->
       </ion-label>
     </ion-item>
   </ion-list>
 
-  <ion-button (click)="crearAsistencia()" expand="block" fill="solid" shape="round">
+  <ion-button (click)="crearAsistencia()" expand="block" fill="solid" shape="round" color="warning">
     Crear Asistencia
   </ion-button>
 </ion-content>

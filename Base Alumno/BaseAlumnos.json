@@ -1,124 +1,178 @@
 {
-    "usuario": {
-        "111111111-1": {
-            "idUsuario": 1,
-            "nombre": "Esteban",
-            "apellido": "Diaz",
-            "contrasena": "123456",
-            "estado": 1,
-            "user": "111111111-1",
-            "clase_a_cargo": "vacio",
-            "clases_inscrita": ["1","3"]
-        },
-        "222222222-2": {
-            "idUsuario": 2,
-            "nombre": "Eduardo",
-            "apellido": "Astorga",
-            "contrasena": "123456",
-            "estado": 1,
-            "user": "222222222-2",
-            "clase_a_cargo": "vacio",
-            "clases_inscrita": ["1","3"]
-        },
-        "333333333-3": {
-            "idUsuario": 3,
-            "nombre": "Joaquin",
-            "apellido": "Herrera",
-            "contrasena": "123456",
-            "estado": 1,
-            "user": "333333333-3",
-            "clase_a_cargo": "vacio",
-            "clases_inscrita": ["2","4"]
-        },
-        "444444444-4": {
-            "idUsuario": 4,
-            "nombre": "Jorge",
-            "apellido": "Opazo",
-            "contrasena": "123456",
-            "estado": 1,
-            "user": "444444444-4",
-            "clase_a_cargo": "vacio",
-            "clases_inscrita": ["2","4"]
-        },
-        "000000000-0": {
-            "idUsuario": 5,
-            "nombre": "Pedro",
-            "apellido": "Ramírez",
-            "contrasena": "123456",
-            "estado": 0,
-            "user": "000000000-0",
-            "clase_a_cargo": ["1","4"],
-            "clases_inscrita": "vacio"
-        },
-        "121212121-2": {
-            "idUsuario": 6,
-            "nombre": "Marta",
-            "apellido": "Torres",
-            "contrasena": "123456",
-            "estado": 0,
-            "user": "121212121-2",
-            "clase_a_cargo": ["2","3"],
-            "clases_inscrita": "vacio"
-        }
+  "Asignatura": [
+    null,
+    {
+      "Profe_a_cargo": "000000000-0",
+      "descripcion": "Descripcion de la asignatura",
+      "idAsignatura": 1,
+      "nombre": "Programacion Movil",
+      "seccion": "001",
+      "usuario_inscrito": [
+        "111111111-1",
+        "222222222-2"
+      ]
     },
-    "Asignatura": {
-        "1":{
-            "idAsignatura": 1,
-            "nombre": "Programacion Movil",
-            "seccion": "001",
-            "descripcion": "Descripcion de la asignatura",
-            "usuario_inscrito":
-            [
-                "111111111-1",
-                "222222222-2"
-            ],
-            "Profe_a_cargo":"000000000-0"
-        },
-        "2":{
-            "idAsignatura": 2,
-            "nombre": "Programacion Movil",
-            "seccion": "002",
-            "descripcion": "Descripcion de la asignatura",
-            "usuario_inscrito":
-            [
-                "333333333-3",
-                "444444444-4"
-            ],
-            "Profe_a_cargo":"121212121-2"
-        },
-        "3":{
-            "idAsignatura": 3,
-            "nombre": "Arquitectura",
-            "seccion": "001",
-            "descripcion": "Descripcion de la asignatura",
-            "usuario_inscrito":
-            [
-                "111111111-1",
-                "222222222-2"
-            ],
-            "Profe_a_cargo":"121212121-2"
-        },
-        "4":{
-            "idAsignatura": 4,
-            "nombre": "Arquitectura",
-            "seccion": "002",
-            "descripcion": "Descripcion de la asignatura",
-            "usuario_inscrito":
-            [
-                "333333333-3",
-                "444444444-4"
-            ],
-            "Profe_a_cargo":"000000000-0"
-        }
+    {
+      "Profe_a_cargo": "121212121-2",
+      "descripcion": "Descripcion de la asignatura",
+      "idAsignatura": 2,
+      "nombre": "Programacion Movil",
+      "seccion": "002",
+      "usuario_inscrito": [
+        "333333333-3",
+        "444444444-4"
+      ]
     },
-    "Asistencia":{
-        "10":{
-            "idClase":"3",
-            "fecha": 1700081841583,
-            "nombre_asignatura":"fakldgjls",
-            "codigo_profesor":"121212121-2",
-            "id_asistencia":"10"
-        }
-
-    }    
+    {
+      "Profe_a_cargo": "121212121-2",
+      "descripcion": "Descripcion de la asignatura",
+      "idAsignatura": 3,
+      "nombre": "Arquitectura",
+      "seccion": "001",
+      "usuario_inscrito": [
+        "111111111-1",
+        "222222222-2"
+      ]
+    },
+    {
+      "Profe_a_cargo": "000000000-0",
+      "descripcion": "Descripcion de la asignatura",
+      "idAsignatura": 4,
+      "nombre": "Arquitectura",
+      "seccion": "002",
+      "usuario_inscrito": [
+        "333333333-3",
+        "444444444-4"
+      ]
+    }
+  ],
+  "Asistencia": {
+    "8616b8b9-7bfc-4010-b910-1109d616ac72": {
+      "codigo_profesor": "000000000-0",
+      "fecha": 1700548987713,
+      "idClase": 4,
+      "id_asistencia": "8616b8b9-7bfc-4010-b910-1109d616ac72",
+      "nombre_asignatura": "Arquitectura"
+    },
+    "960176c1-8c5b-416b-9e49-39531a265f98": {
+      "alumno_presente": [
+        "111111111-1",
+        "222222222-2",
+        "333333333-3"
+      ],
+      "codigo_profesor": "000000000-0",
+      "fecha": 1700548354564,
+      "idClase": 4,
+      "id_asistencia": "960176c1-8c5b-416b-9e49-39531a265f98",
+      "nombre_asignatura": "Arquitectura"
+    },
+    "afb75593-8342-4753-8357-79667aba603c": {
+      "codigo_profesor": "000000000-0",
+      "fecha": 1700548973335,
+      "idClase": 1,
+      "id_asistencia": "afb75593-8342-4753-8357-79667aba603c",
+      "nombre_asignatura": "Programacion Movil"
+    },
+    "e9972ba3-7f0a-4c13-9448-9f5f63e555c6": {
+      "codigo_profesor": "000000000-0",
+      "fecha": 1700549002006,
+      "idClase": 4,
+      "id_asistencia": "e9972ba3-7f0a-4c13-9448-9f5f63e555c6",
+      "nombre_asignatura": "Arquitectura"
+    },
+    "f9cfa23b-7a59-4a5b-bb1c-b44c141d9d3e": {
+      "codigo_profesor": "121212121-2",
+      "fecha": 1700457894230,
+      "idClase": 2,
+      "id_asistencia": "f9cfa23b-7a59-4a5b-bb1c-b44c141d9d3e",
+      "nombre_asignatura": "Programacion Movil"
+    },
+    "faf776ad-be1a-476f-9ea9-3096383e3256": {
+      "codigo_profesor": "000000000-0",
+      "fecha": 1700548466279,
+      "idClase": 1,
+      "id_asistencia": "faf776ad-be1a-476f-9ea9-3096383e3256",
+      "nombre_asignatura": "Programacion Movil"
+    }
+  },
+  "usuario": {
+    "000000000-0": {
+      "apellido": "Ramírez",
+      "clase_a_cargo": [
+        "1",
+        "4"
+      ],
+      "clases_inscrita": "vacio",
+      "contrasena": "123456",
+      "estado": 0,
+      "idUsuario": 5,
+      "nombre": "Pedro",
+      "user": "000000000-0"
+    },
+    "111111111-1": {
+      "apellido": "Diaz",
+      "clase_a_cargo": "vacio",
+      "clases_inscrita": [
+        "1",
+        "3"
+      ],
+      "contrasena": "123456",
+      "estado": 1,
+      "idUsuario": 1,
+      "nombre": "Esteban",
+      "user": "111111111-1"
+    },
+    "121212121-2": {
+      "apellido": "Torres",
+      "clase_a_cargo": [
+        "2",
+        "3"
+      ],
+      "clases_inscrita": "vacio",
+      "contrasena": "123456",
+      "estado": 0,
+      "idUsuario": 6,
+      "nombre": "Marta",
+      "user": "121212121-2"
+    },
+    "222222222-2": {
+      "apellido": "Astorga",
+      "clase_a_cargo": "vacio",
+      "clases_inscrita": [
+        "1",
+        "3"
+      ],
+      "contrasena": "123456",
+      "estado": 1,
+      "idUsuario": 2,
+      "nombre": "Eduardo",
+      "user": "222222222-2"
+    },
+    "333333333-3": {
+      "apellido": "Herrera",
+      "clase_a_cargo": "vacio",
+      "clases_inscrita": [
+        "2",
+        "4"
+      ],
+      "contrasena": "123456",
+      "estado": 1,
+      "idUsuario": 3,
+      "nombre": "Joaquin",
+      "user": "333333333-3"
+    },
+    "444444444-4": {
+      "apellido": "Opazo",
+      "clase_a_cargo": "vacio",
+      "clases_inscrita": [
+        "2",
+        "4"
+      ],
+      "contrasena": "123456",
+      "estado": 1,
+      "idUsuario": 4,
+      "nombre": "Jorge",
+      "user": "444444444-4"
+    }
+  }
 }
