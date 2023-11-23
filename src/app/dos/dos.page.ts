@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiLoginService } from '../inicio/api-login.service';
 import { Storage } from '@ionic/storage-angular';
 import { CrudStorageService } from '../inicio/crud-storage.service';
+import { AlertController, ToastController } from '@ionic/angular';
 //IMPORT PARA CAMARA
 import { BarcodeScanner } from '@capacitor-mlkit/barcode-scanning';
 import { ChangeDetectorRef } from '@angular/core';
@@ -27,7 +28,8 @@ export class DosPage implements OnInit {
     private router: Router,
     private storage: Storage,
     private crud: CrudStorageService,
-    private changeDetectorRef: ChangeDetectorRef) { }
+    private changeDetectorRef: ChangeDetectorRef,
+    private alertcontroller: AlertController) { }
 
     async startScan() {
       document.body.classList.add('barcode-scanner-active');
@@ -40,6 +42,8 @@ export class DosPage implements OnInit {
       });
       await BarcodeScanner.startScan();
     }
+
+
   
     async stopScan() {
       document.body.classList.remove('barcode-scanner-active');
@@ -82,5 +86,16 @@ export class DosPage implements OnInit {
   cerrarSesion(){
     this.crud.clearCurrentUser()
     this.router.navigate(['/inicio']);
+  }
+
+
+  async alertaAsistencia() {
+    const alert = await this.alertcontroller.create({
+      header: 'La asistencia ya fue pasada',
+      message: 'No puede registrarse',
+      buttons: ['ok'],
+    });
+
+    await alert.present();
   }
 }

@@ -20,6 +20,8 @@ export class ProfeQRPage implements OnInit {
     private router: Router
   ) { }
 
+
+
   ngOnInit() {
     this.activeroute.queryParams.subscribe(params => {
       this.id_asitencia = params['id_asistencia'];

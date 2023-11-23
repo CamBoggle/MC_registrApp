@@ -86,32 +86,7 @@ export class InicioPage implements OnInit {
     await alert.present();
   }
 }
-  // async paginaPrincipal()
-  // {
-  //   this.api.getlogin(this.usuario,this.password).subscribe((data=[]) => {
-  //     console.log(data);
-  //   if(data.length == 1)
-  //   {
-  //     const usuario = data[0];
-  //     this.crud.guardar(usuario.idUsuario,usuario.nombre);
-  //     if (usuario.estado === 1) 
-  //     {
-  //       console.log("Usuario es alumno");
-  //       this.router.navigate(['/dos', usuario.idUsuario]);
-  //     }
-  //     else
-  //     {
-  //       console.log("Usuario es profesor");
-  //       this.router.navigate(['/dos.profesor', usuario.idUsuario]);
-  //     } 
-  //   }
-  //   else
-  //   {
-  //     console.log("fsdfas52345");
-  //     this.errorUsuario();
-  //   }
-  //   })
-  // }
+
 
 
 

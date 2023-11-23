@@ -24,8 +24,8 @@ describe('==== Prueba detalle Asignatura ====', () => {
   let component: DetalleAsignaturaPage;
   let fixture: ComponentFixture<DetalleAsignaturaPage>;
 
-  beforeEach(waitForAsync( async() => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       declarations: [DetalleAsignaturaPage],
       imports : [IonicModule.forRoot(), FormsModule, RouterTestingModule]
     }).compileComponents();
@@ -36,15 +36,15 @@ describe('==== Prueba detalle Asignatura ====', () => {
   }));
 
 
-  it('Alumnos Presentes: El metodo contara los alumbnos presentes en clases',() => {
+  it('Alumnos Presentes: El metodo contara los alumnos presentes en clases', fakeAsync(() => {
     const mockAsistencia = { alumno_presente: ['alumno1', 'alumno2', 'alumno3'] };
     const resultado = component.contarAlumnosPresentes(mockAsistencia);
     expect(resultado).toEqual(3);
-  });
+  }));
 
-  it('Alumnos Presentes: No hay alumnos en la clase',() => {
+  it('Alumnos Presentes: No hay alumnos en la clase', fakeAsync(() => {
     const mockAsistencia = { alumno_presente: [] };
     const resultado = component.contarAlumnosPresentes(mockAsistencia);
     expect(resultado).toEqual(0);
-  });
+  }));
 });
