@@ -13,6 +13,7 @@ export class ProfeQRPage implements OnInit {
   id_asitencia: string = '';
   detalleAsistencia: any = [];
   usuariosPresentes: any = [];
+  ocultarQR: boolean = false;
 
   constructor(
     private api: ApiLoginService,
@@ -27,6 +28,8 @@ export class ProfeQRPage implements OnInit {
       this.id_asitencia = params['id_asistencia'];
       if (this.id_asitencia) {
         console.log(this.id_asitencia)
+        this.ocultarQR = this.api.getOcultar(); // Obtener el estado actual de ocultar
+        console.log(this.id_asitencia);
         this.api.obtenerAsistencia(this.id_asitencia)
             .then(asistencia => {
               this.detalleAsistencia = asistencia;
@@ -45,6 +48,7 @@ export class ProfeQRPage implements OnInit {
               console.error('Error al obtener la asignatura:', error);
             });
       }
+      
     }
     )
   };

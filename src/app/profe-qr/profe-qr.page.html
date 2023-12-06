@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h1 style="color: white;">QR de la Asignatura</h1>
+  <h1 style="color: white;">Detalle de la Asignatura</h1>
   <br><br>
-  <ion-item>
+  <ion-item *ngIf="ocultarQR === true">
     <qrcode [qrdata]="id_asitencia" [width]="250" style="padding-left: 12%;"></qrcode>
   </ion-item>
   <br>

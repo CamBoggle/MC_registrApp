@@ -8,6 +8,8 @@ import { Database, ref, get, set, update, push } from '@angular/fire/database';
 })
 export class ApiLoginService {
 
+  ocultar: boolean = false;
+
   constructor(private db: Database) { }
 
   async obtenerUsuario(user: string) {
@@ -94,6 +96,22 @@ export class ApiLoginService {
     } else {
       return [];
     }
+  }
+
+  //METODO DE QR
+
+  mostrarQR()
+  {
+    this.ocultar = true;
+  }
+
+  ocultarQ()
+  {
+    this.ocultar = false;
+  }
+
+  getOcultar(): boolean {
+    return this.ocultar;
   }
 
 

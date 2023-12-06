@@ -34,7 +34,7 @@
   </ion-button>
   <br>
   <ion-list>
-    <ion-card class="fondoOscuro" *ngFor="let asist of asistenciasClase">
+    <ion-card class="fondoOscuro" *ngFor="let asist of asistenciasClase" (click)="verAsistenciasPasadas(asist.id_asistencia)">
       <ion-card-header>
         <ion-card-subtitle class="colorAmarillo">Fecha de Asistencia:</ion-card-subtitle>
         <ion-card-title class="colorLetra">{{asist.fecha | date: 'medium'}}</ion-card-title>

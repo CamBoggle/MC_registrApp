@@ -70,6 +70,7 @@ export class DetalleAsignaturaPage implements OnInit {
         this.detalleClase.Profe_a_cargo
       ).then(idAsistencia => {
         console.log('Registro de asistencia creado con ID:', idAsistencia);
+        this.api.mostrarQR();
         this.router.navigate(['/profe-qr'], {
           queryParams: { id_asistencia: this.uuid }
         });
@@ -88,6 +89,7 @@ export class DetalleAsignaturaPage implements OnInit {
     }
 
     verAsistenciasPasadas(uuid: string){
+      this.api.ocultarQ();
       this.router.navigate(['/profe-qr'], {
         queryParams: { id_asistencia: uuid }
       });
