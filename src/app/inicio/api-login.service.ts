@@ -98,6 +98,26 @@ export class ApiLoginService {
     }
   }
 
+
+  async obtenerAsistenciasPorAlumno(idAlumno: string) {
+    const asistenciasRef = ref(this.db, '/Asistencia');
+    const snapshot = await get(asistenciasRef);    
+    if (snapshot.exists()) {
+      const todasLasAsistencias = snapshot.val();
+      const asistenciasFiltradas = Object.keys(todasLasAsistencias)
+        .filter(key => todasLasAsistencias[key].alumno_presente.includes(idAlumno))
+        .map(key => {
+          return {
+            ...todasLasAsistencias[key],
+            id: key // Si necesitas el ID de asistencia en tus datos
+          };
+        });
+      return asistenciasFiltradas;
+    } else {
+      return [];
+    }
+  }
+
   //METODO DE QR
 
   mostrarQR()

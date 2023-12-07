@@ -21,12 +21,27 @@
   </div>
   <br><br>
   <p style="color: white; padding-left: 37%;">Asignaturas</p>
+  
   <ion-item *ngFor="let detalleClase of clasesDetalles">
     <ion-label >
       Nombre: {{ detalleClase.nombre }}<br>
       Sección: {{ detalleClase.seccion }}<br>
     </ion-label>
   </ion-item>
+
+  <ion-list>
+    <ion-card class="fondoOscuro" *ngFor="let asistencia of asistenciasClase">
+      <ion-card-header>
+        <ion-card-subtitle class="colorAmarillo">Asistencia</ion-card-subtitle>
+        <ion-card-title class="colorLetra">Fecha: {{ asistencia.fecha | date:'medium' }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="colorLetra">
+        Asignatura: {{ asistencia.nombre_asignatura }}
+      </ion-card-content>
+    </ion-card>    
+  </ion-list>
+
+
   <br><br>
   <ion-button (click)="cerrarSesion()" shape="round" fill="outline" color="warning">
     Cerrar Sesión

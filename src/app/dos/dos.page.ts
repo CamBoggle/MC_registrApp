@@ -21,7 +21,7 @@ export class DosPage implements OnInit {
   clasesUsuario: any = []
   clasesDetalles: any = [];
   lectorQR?: string;
-
+  asistenciasClase : any[] = [];
 
   constructor(
     private api: ApiLoginService,
@@ -30,6 +30,7 @@ export class DosPage implements OnInit {
     private crud: CrudStorageService,
     private changeDetectorRef: ChangeDetectorRef,
     private alertcontroller: AlertController) { }
+    
 
     async startScan() {
       document.body.classList.add('barcode-scanner-active');
@@ -60,7 +61,7 @@ export class DosPage implements OnInit {
 
 
   ngOnInit() {
-   this.cargarDatosUsuario();
+    this.cargarDatosUsuario();
   }
 
   async cargarDatosUsuario() {
@@ -82,7 +83,20 @@ export class DosPage implements OnInit {
         this.clasesDetalles.push(detallesClase);
       }
     }
+    this.listaAsistencia();
   }
+
+  
+
+  listaAsistencia() {
+    this.api.obtenerAsistenciasPorAlumno(this.usuarioData.user).then(asistencias => {
+      console.log(asistencias);
+      this.asistenciasClase = asistencias;
+    });
+  }
+  
+
+
   cerrarSesion(){
     this.crud.clearCurrentUser()
     this.router.navigate(['/inicio']);
