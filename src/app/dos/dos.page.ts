@@ -37,7 +37,7 @@ export class DosPage implements OnInit {
       const listener = await BarcodeScanner.addListener('barcodeScanned', async (result) => {
         if (result.barcode.displayValue) {
           this.lectorQR = result.barcode.displayValue;
-          this.api.alumnoPresente(this.lectorQR,this.usuarioData.user);
+          this.api.alumnoPresente(this.lectorQR,this.usuarioData.user, this.clasesUsuario);
           this.stopScan(); 
         }
       });
@@ -55,9 +55,9 @@ export class DosPage implements OnInit {
 
 
 
-    prueba(){
-      this.api.alumnoPresente("49ff5c06-bd41-4cac-a62a-32c371ce352b", "111111111-1")
-    }
+    // prueba(){
+    //   this.api.alumnoPresente("49ff5c06-bd41-4cac-a62a-32c371ce352b", "111111111-1")
+    // }
 
 
   ngOnInit() {

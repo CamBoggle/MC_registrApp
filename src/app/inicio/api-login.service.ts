@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Database, ref, get, set, update, push } from '@angular/fire/database';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -10,7 +11,9 @@ export class ApiLoginService {
 
   ocultar: boolean = false;
 
-  constructor(private db: Database) { }
+  constructor(
+    private db: Database,
+    private alertController: AlertController) { }
 
   async obtenerUsuario(user: string) {
     const userRef = ref(this.db, `/usuario/${user}`);
@@ -59,16 +62,24 @@ export class ApiLoginService {
   }
 
 
-  async alumnoPresente(idAsistencia: string, idUsuario: string): Promise<void> {
+  async alumnoPresente(idAsistencia: string, idUsuario: string, clases_alumno: any[]): Promise<void> {
     const attendanceRef = ref(this.db, `Asistencia/${idAsistencia}`);
     try {
       const snapshot = await get(attendanceRef);
       if (snapshot.exists()) {
         const attendance = snapshot.val();
-        attendance.alumno_presente = attendance.alumno_presente || [];
-        if (!attendance.alumno_presente.includes(idUsuario)) {
-          attendance.alumno_presente.push(idUsuario);
-          await set(attendanceRef, attendance);
+        const pertenece = await this.alumnoPertenece(attendance.idClase, clases_alumno)
+        console.log("///////////",pertenece)
+        if (!pertenece) {
+          await this.mostrarAlerta('Error', 'El alumno no pertenece a esta clase');
+          return
+        }
+        else {
+          attendance.alumno_presente = attendance.alumno_presente || [];
+          if (!attendance.alumno_presente.includes(idUsuario)) {
+            attendance.alumno_presente.push(idUsuario);
+            await set(attendanceRef, attendance);
+          }
         }
       } else {
         console.log('Attendance record not found');
@@ -78,6 +89,29 @@ export class ApiLoginService {
       throw error;
     }
   }
+
+
+  async alumnoPertenece(idAsignatura: number, clases_inscrita: any[]) {
+    const idAsignaturaStr = idAsignatura.toString();
+    const estaInscrito = clases_inscrita.includes(idAsignaturaStr);
+    console.log("++++++++++++++++++++",idAsignaturaStr)
+    console.log("++++++++++++++++++++",clases_inscrita)
+    console.log(estaInscrito);
+    return estaInscrito ? true : null;
+  }
+
+
+
+
+  // async alumnoPertenece(idAsignatura: number, clases_inscrita: any[]): Promise<boolean> {
+  //   const estaInscrito = clases_inscrita.includes(idAsignatura);
+  //   return estaInscrito;
+  // }
+  
+
+
+
+
 
   async obtenerAsistenciasPorClase(idClase: string) {
     const asistenciasRef = ref(this.db, '/Asistencia');
@@ -101,7 +135,7 @@ export class ApiLoginService {
 
   async obtenerAsistenciasPorAlumno(idAlumno: string) {
     const asistenciasRef = ref(this.db, '/Asistencia');
-    const snapshot = await get(asistenciasRef);    
+    const snapshot = await get(asistenciasRef);
     if (snapshot.exists()) {
       const todasLasAsistencias = snapshot.val();
       const asistenciasFiltradas = Object.keys(todasLasAsistencias)
@@ -120,18 +154,27 @@ export class ApiLoginService {
 
   //METODO DE QR
 
-  mostrarQR()
-  {
+  mostrarQR() {
     this.ocultar = true;
   }
 
-  ocultarQ()
-  {
+  ocultarQ() {
     this.ocultar = false;
   }
 
   getOcultar(): boolean {
     return this.ocultar;
+  }
+
+  //ALERTA
+  async mostrarAlerta(titulo: string, mensaje: string): Promise<void> {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['OK']
+    });
+  
+    await alert.present();
   }
 
 
